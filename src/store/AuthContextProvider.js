@@ -11,7 +11,7 @@ const AuthContextProvider = (props) => {
   };
 
   const logoutHandler = () => {
-    // Something you have to do
+    setToken(null);
   };
 
   const contextObject = {
