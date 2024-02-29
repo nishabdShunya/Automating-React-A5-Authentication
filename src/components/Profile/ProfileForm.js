@@ -1,10 +1,14 @@
 import { useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 
 import "./ProfileForm.css";
 
 const ProfileForm = () => {
   const authCtx = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const newPasswordInputRef = useRef();
 
   const submitHandler = async (event) => {
@@ -28,6 +32,7 @@ const ProfileForm = () => {
       }
       const data = await response.json();
       console.log(data);
+      navigate("/");
     } catch (error) {
       alert(error.message);
     }
